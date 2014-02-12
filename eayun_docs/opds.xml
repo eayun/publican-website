@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+      xmlns:dc="http://purl.org/dc/terms/"
+      xmlns:opds="http://opds-spec.org/2010/catalog">
+  <id>urn:http://192.168.0.191/opds.xml</id>
+  <link rel="self"  href="http://192.168.0.191/opds.xml" type="application/atom+xml;type=feed;profile=opds-catalog"/>
+  <link rel="start" href="http://192.168.0.191/opds.xml" type="application/atom+xml;type=feed;profile=opds-catalog"/>
+  <link rel="http://opds-spec.org/crawlable" type="application/atom+xml" href="http://bookserver.archive.org/catalog/crawlable" title="Crawlable feed"/>
+  <title>Documentation</title>
+  <updated>2014-02-12T08:28:00</updated>
+  <!--author>
+    <name></name>
+    <uri></uri>
+  </author-->
+
+  <entry>
+    <title>简体中文</title>
+    <id>zh-CN/opds.xml</id>
+    <updated>2014-02-12T08:28:00</updated>
+    <dc:language>zh-CN</dc:language>
+    <content type="text"></content>
+    <link type="application/atom+xml" href="zh-CN/opds.xml"/>
+ </entry>
+</feed>

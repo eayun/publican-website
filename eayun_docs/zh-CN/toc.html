@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="../interactive.css" type="text/css" />
+	<script type="text/javascript" src="../toc.js"></script>
+	<title>toc nav</title>
+</head>
+<body class="tocnav" onload="hideNoJS();getCookie();checkCookie();checkMenu();">
+<div id="closemenu" class="closemenu visible">
+	<a href="#" title="Hide Menu" onclick="hideMenu();" ><img src="../images/close.png"/></a>
+</div>
+<div id="openmenu" class="openmenu hidden">
+	<a href="#" title="Show Menu" onclick="showMenu();"><img src="../images/open.png"/></a>
+</div>
+<div id="outer" class="outer visible">
+<h1>
+	<a style="background-image:url(images/web_logo.png)" href="index.html" onclick="window.top.location='index.html'" ><span>Welcome</span></a>
+</h1>
+<div class="tocnavwrap">
+		<form target="_top" method="get" action="http://www.google.com/search">
+		<div class="search">
+			<input class="searchtxt" type="text" name="q" value="" />
+			<input class="searchsub" type="submit" value="Search" />
+			<input class="searchchk" type="hidden"  name="sitesearch" value="http://192.168.0.191" />
+		</div>
+	</form>
+ 
+	<div class="lang">
+		<div class="reset">
+			<a href="#" title="collapse document navigation" onclick="clearCookie();">collapse all</a>
+		</div>
+		<select id="langselect" class="langselect"  onchange="loadToc();">
+			<option disabled="disabled" value="">Language</option>
+			<option selected="selected" value="zh-CN">简体中文</option>
+		</select>
+	</div>
+	<div class="hidden" id="nocookie">
+		The Navigation Menu below will automatically collapse when pages are loaded. Enable cookies to fix the Navigation Menu functionality.
+	</div>
+	<div class="nocookie" id="nojs">
+		<p>The Navigation Menu above requires JavaScript to function.</p><p>Enable JavaScript to allow the Navigation Menu to function.</p><p>Disable CSS to view the Navigation options without JavaScript enabled</p>
+	</div>
+</div>					
+</div>					
+</body>
+</html>
+

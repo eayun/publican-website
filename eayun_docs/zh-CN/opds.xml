@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+      xmlns:dc="http://purl.org/dc/terms/"
+      xmlns:opds="http://opds-spec.org/2010/catalog">
+  <link rel="self"  href="http://192.168.0.191/zh-CN/opds.xml" type="application/atom+xml;type=feed;profile=opds-catalog"/>
+  <link rel="http://opds-spec.org/crawlable" type="application/atom+xml" href="http://bookserver.archive.org/catalog/crawlable" title="Crawlable feed"/>
+  <id>http://192.168.0.191/zh-CN/opds.xml</id>
+  <title>Product List</title>
+  <updated>2014-02-12T08:28:00</updated>
+  <!--author>
+    <name></name>
+    <uri></uri>
+  </author-->
+
+</feed>
