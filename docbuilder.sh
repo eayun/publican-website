@@ -1,21 +1,31 @@
 #!/bin/sh
 
 source_url_base="https://github.com/eayun"
-sources=("Documents" "Installation_Guide" "publican-eayun")
-documents=("administrator-guide" "evaluation-guide" "FAQ" "quick-start-guide" "technical-reference-guide" "user-guide" "V2V-guide")
+sources=("Documents" "Installation_Guide" "publican-eayun" "gitbook2publican")
+documents=("original_dockbook/administrator-guide" "evaluation-guide" "FAQ" "quick-start-guide" "technical-reference-guide" "original_dockbook/user-guide" "V2V-guide" "original_dockbook/Developer-guide")
+converted_documents=("administration-guide")
 
 rc=0
 
 case "$1" in
     getsource)
+        workdir=$(pwd)
         for i in ${sources[@]}; do
-            git clone ${source_url_base}/$i
+            if [ -d $workdir/$i ]
+            then
+                cd $workdir/$i
+                git pull
+            else
+                cd $workdir
+                git clone ${source_url_base}/$i
+            fi
         done
         ;;
     buildwebsite)
         workdir=$(pwd)
-        if [ -d publican-eayun -a -d Installation_Guide -a -d Documents ]
+        if [ -d publican-eayun -a -d Installation_Guide -a -d Documents -a -d gitbook2publican ]
         then
+            rm -rf $workdir/web
             publican create_site --lang=zh-CN --site_config=$workdir/web/publican.cfg --db_file=$workdir/web/doc.db --toc_path=$workdir/web
             cd $workdir/publican-eayun
             publican build --quiet --formats=xml --langs=zh-CN --publish && publican install_brand --quiet --path=$workdir/web
@@ -23,6 +33,12 @@ case "$1" in
             publican build --formats=html,html-single,epub,pdf --langs=zh-CN --quiet --publish --embedtoc && publican install_book --quiet --site_config=$workdir/web/publican.cfg --lang=zh-CN
             for i in ${documents[@]}; do
                 cd $workdir/Documents/$i
+                publican build --formats=html,html-single,epub,pdf --langs=zh-CN --quiet --publish --embedtoc && publican install_book --quiet --site_config=$workdir/web/publican.cfg --lang=zh-CN
+            done
+            for i in ${converted_documents[@]}; do
+                cd $workdir/Documents/$i
+                $workdir/gitbook2publican/auto.sh
+                cd $workdir/Documents/$i/docbook/docbook/
                 publican build --formats=html,html-single,epub,pdf --langs=zh-CN --quiet --publish --embedtoc && publican install_book --quiet --site_config=$workdir/web/publican.cfg --lang=zh-CN
             done
         else
