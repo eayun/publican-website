@@ -14,6 +14,8 @@ case "$1" in
             if [ -d $workdir/$i ]
             then
                 cd $workdir/$i
+                git reset --hard origin/master
+                git clean -d -f
                 git pull
             else
                 cd $workdir
