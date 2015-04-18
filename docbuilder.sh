@@ -3,7 +3,7 @@
 source_url_base="https://github.com/eayun"
 sources=("Documents" "Installation_Guide" "publican-eayun" "gitbook2publican")
 documents=("original_dockbook/administrator-guide" "evaluation-guide" "FAQ" "quick-start-guide" "technical-reference-guide" "original_dockbook/user-guide" "V2V-guide" "original_dockbook/Developer-guide")
-converted_documents=("administration-guide")
+converted_documents=("administration-guide" "EayunOS-features")
 
 rc=0
 
@@ -39,7 +39,7 @@ case "$1" in
             done
             for i in ${converted_documents[@]}; do
                 cd $workdir/Documents/$i
-                $workdir/gitbook2publican/auto.sh
+                $workdir/gitbook2publican/auto.sh $i
                 cd $workdir/Documents/$i/docbook/docbook/
                 publican build --formats=html,html-single,epub,pdf --langs=zh-CN --quiet --publish --embedtoc && publican install_book --quiet --site_config=$workdir/web/publican.cfg --lang=zh-CN
             done
