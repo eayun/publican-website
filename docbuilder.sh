@@ -3,7 +3,7 @@
 source_url_base="https://github.com/eayun"
 sources=("Documents" "Installation_Guide" "publican-eayun" "gitbook2publican")
 documents=("original_dockbook/administrator-guide" "evaluation-guide" "FAQ" "quick-start-guide" "technical-reference-guide" "original_dockbook/user-guide" "V2V-guide" "original_dockbook/Developer-guide")
-converted_documents=("administration-guide" "EayunOS-features")
+converted_documents=("administration-guide" "EayunOS-features" "installation-guide")
 
 rc=0
 
